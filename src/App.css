@@ -1,6 +1,4 @@
 .centered{
-  
-  
   margin: auto auto;
 }
 
@@ -8,9 +6,15 @@
   background-color: rgba(200, 200, 200, .4);
   display: flex;
   flex-direction: column;
+  align-items: center;  
 
 }
 .wrapper{
   display: flex;
-  
+  height: 100vh;
+  width: 100vw;
+}
+
+.stretch{
+  width: 100%
 }
