@@ -6,7 +6,10 @@ function App() {
   const [occupations, setOccupations] = useState({});
   const [states, setStates] = useState({});
   const [name, setName] = useState('');
-  const [email, setEmail] = useState('')
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState(''); 
+  const [userState, setUserState] = useState('');
+  const [userOccupation, setUserOccupation] = useState('');
   
   //fetches data for locations and occupations select
   const getFormData = async () => {
@@ -21,6 +24,25 @@ function App() {
       console.log("There was an error:", error)
     }
   }
+
+  const postFormData = async () => {
+    try {
+        const response = await fetch('https://frontend-take-home.fetchrewards.com/form', {
+          method: 'POST',
+          body: JSON.stringify(
+            {
+              "name": name,
+              "email": email,
+              "password": password,
+              "occupation": occupation,
+              "state": state
+          })
+        })
+    } catch (error) {
+      
+    }
+  }
+
 
   useEffect(()=> {
     getFormData();
@@ -50,7 +72,9 @@ function App() {
           </label>
           <label> Password: <br />
             <input  type="text"
-                    placeholder="Password..." 
+                    placeholder="Password..."
+                    value={password} 
+                    onChange={(e)=>{setPassword(e.target.value)}} 
                     required /><br />
                   Confirm Password: <br />
             <input  type="text"
@@ -59,8 +83,7 @@ function App() {
           </label>
           <label> Occupation: <br />
             <select placeholder="Occupation..." required >
-              { //hydrates occupation select with fetched data
-                occupations.length &&
+              { occupations.length &&
                   occupations?.map((job, index) => {
                     return <option 
                       alt={job} 
@@ -82,7 +105,8 @@ function App() {
                             </option>
               })}
             </select>
-          </label> 
+          </label>
+          <input type="submit" /> 
       </form>
     </div>
   );
