@@ -1,19 +1,73 @@
+@import url(https://fonts.googleapis.com/css?family=Lato);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
+
+body{
+  margin: 0px 0px 0px 0px;
+}
+
+.lato{
+  font-family: 'Lato';
+  color: #300C39;
+}
+
+.submit{
+  font-family: 'Lato';
+  background-color: #300C39;
+  color: whitesmoke;
+  border-radius: 5px;
+}
+
+input{
+  width: 200px;
+  height: 25px;
+  border: .5px solid #300C39;
+  border-radius: 5px;
+  margin: 5px 0px;
+  font-family: 'Source Sans Pro';
+}
+
+.logo{
+  margin-top: -70px;
+  width: 210;
+  height: 45;
+}
+
+select{
+  width: 200px !important;
+  height: 25px !important;
+
+}
+
+.bolded{
+  margin-top: -25px;
+  font-size: 3rem;
+  margin-bottom: -5px;
+}
+
 .centered{
   margin: auto auto;
 }
 
-.form {
-  background-color: rgba(200, 200, 200, .4);
-  display: flex;
-  flex-direction: column;
-  align-items: center;  
-
-}
 .wrapper{
+  background-image: url(https://prod-static-content.fetchrewards.com/content-service/image/web/c718d1eee0/HEADER_Fuzzy_Phone_2xl.webp);
+  background-size: cover;
   display: flex;
   height: 100vh;
   width: 100vw;
 }
+
+.form {
+  background-color: #FFDF7E;
+  padding: 5pt 10pt;
+  border-radius: 5pt;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 300px;  
+  box-shadow: 10px 10px 19px 1px rgba(0,0,0,0.75);
+}
+
+
 
 .stretch{
   width: 100%
