@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import './App.css';
+import './App.scss';
 
 function App() {
   
@@ -7,7 +7,8 @@ function App() {
   const [states, setStates] = useState({});
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState(''); 
+  const [password, setPassword] = useState('');
+  const [passwordCheck, setPasswordCheck] = useState(''); 
   const [userState, setUserState] = useState('');
   const [userOccupation, setUserOccupation] = useState('');
   
@@ -18,8 +19,8 @@ function App() {
       const data = await response.json();
 
 
-      data.states.unshift({name: 'SELECT STATE', abbreviation: 'noop'})
-      data.occupations.unshift('SELECT OCCUPATION')
+      data.states.unshift({name: 'SELECT STATE*', abbreviation: 'noop'})
+      data.occupations.unshift('SELECT OCCUPATION*')
       
       setStates(data.states);
       setOccupations(data.occupations);
@@ -30,18 +31,22 @@ function App() {
   }
 
   const postFormData = async () => {
-    try {
-        const response = await fetch('https://frontend-take-home.fetchrewards.com/form', {
-          method: 'POST',
-          body: JSON.stringify({ 
-              "name": name,
-              "email": email,
-              "password": password,
-              "occupation": userOccupation,
-              "state": userState
-          })})
-    } catch (error) {
-      console.log('There was an error in the post request', error)
+    if(password != passwordCheck){
+      console.log('password check')
+    } else{
+      try {
+          const response = await fetch('https://frontend-take-home.fetchrewards.com/form', {
+            method: 'POST',
+            body: JSON.stringify({ 
+                "name": name,
+                "email": email,
+                "password": password,
+                "occupation": userOccupation,
+                "state": userState
+            })})
+      } catch (error) {
+        console.log('There was an error in the post request', error)
+      }
     }
   }
 
@@ -52,10 +57,11 @@ function App() {
 
   return (
     <div className="wrapper">
-      <img alt="Airbnb Logo" src="assets/airbnb.png" ></img>
-      <img alt="Starbucks Logo" src="./assets/starbucks.svg" ></img>
-      <img alt="Amazon Logo" src="./assets/amazon.svg" ></img>
-      <img alt="Walmart Logo" src="./assets/walmart.jpeg" ></img>
+      <img alt="Target Logo" className="icon-1" src='https://fetch.com/assets/images/logos/corporate/target.png' />
+      <img alt="Airbnb Logo" className="icon-2" src="https://fetch.com/assets/images/logos/corporate/airbnb.png" />
+      <img alt="Starbucks Logo" className="icon-3" src="https://fetch.com/assets/images/logos/corporate/starbucks.png" />
+      <img alt="Amazon Logo" className="icon-4" src="https://fetch.com/assets/images/logos/corporate/amazon.png" />
+      <img alt="Walmart Logo" className="icon-5" src="https://fetch.com/assets/images/logos/corporate/walmart.jpg"></img>
       <form className="form centered"
             onSubmit={postFormData} >
         {/* logo imported below */}
@@ -64,6 +70,7 @@ function App() {
         <h1 className="lato">Join the</h1>
         <h1 className="lato bolded">FUN!</h1>
             <input  type="text" 
+                    className="text-field"
                     value={name} 
                     onChange={(e)=>{setName(e.target.value)}}
                     placeholder="FULL NAME*"
@@ -71,6 +78,7 @@ function App() {
                     required />
         
             <input  type="email"
+                    className="text-field"
                     value={email} 
                     onChange={(e)=>{setEmail(e.target.value)}}
                     placeholder="EMAIL ADDRESS*"
@@ -78,16 +86,21 @@ function App() {
                     required />
         
             <input  type="password"
+                    className="text-field"
                     placeholder="PASSWORD*"
                     value={password} 
                     onChange={(e)=>{setPassword(e.target.value)}} 
                     required />
                   
             <input  type="password"
+                    className="text-field"
+                    value={passwordCheck}
+                    onChange={(e)=>{setPasswordCheck(e.target.value)}}
                     placeholder="CONFIRM PASSWORD*" 
                     required />
          
             <select placeholder="Occupation..."
+                    className="select-field"
                     onChange={(e)=>{setUserOccupation(e.target.value)}} 
                     required >
                     { occupations.length &&
@@ -101,6 +114,7 @@ function App() {
             </select>
          
             <select onChange={(e)=>{setUserState(e.target.value)}}  
+                    className="select-field"
                     required>
               { states.length &&
                   states.map((state, index) => {

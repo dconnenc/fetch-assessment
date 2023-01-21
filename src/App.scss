@@ -2,13 +2,14 @@
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
 
 body{
-  margin: 0px 0px 0px 0px;
+  margin: 0px 0px 0px 0px; 
 }
 
 .lato{
   font-family: 'Lato';
   color: #300C39;
 }
+
 
 .submit{
   font-family: 'Lato';
@@ -17,13 +18,50 @@ body{
   border-radius: 5px;
 }
 
+.icon{
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  border-radius: 50%;
+  z-index: 1;
+  &-1{
+    @extend .icon;
+    margin-top: 100px;
+    margin-left: 350px;
+  }
+  &-2{
+    @extend .icon;
+    margin-top: 180px;
+    margin-left: 150px;
+  }
+  &-3{
+    @extend .icon;
+    margin-top: 300px;
+    margin-left: 480px;
+  }
+  &-4{
+    @extend .icon;
+    margin-top: 400px;
+    margin-left: 250px;
+  }
+  &-5{
+    @extend .icon;
+    margin-top: 600px;
+    margin-left: 376px;    
+  }
+}
+
+
+
 input{
   width: 200px;
   height: 25px;
-  border: .5px solid #300C39;
-  border-radius: 5px;
+  border: none;
   margin: 5px 0px;
   font-family: 'Source Sans Pro';
+}
+input::placeholder{
+  color: #300C39;
 }
 
 .logo{
@@ -42,6 +80,18 @@ select{
   margin-top: -25px;
   font-size: 3rem;
   margin-bottom: -5px;
+}
+
+.text-field{
+  background-color: #FFDF7E;
+  border-bottom: 1px solid #300C39;
+  color: #300C39;
+}
+
+.select-field{
+  background-color: #FFDF7E;
+  font-family: 'Source Sans Pro';
+  border: none;
 }
 
 .centered{
@@ -65,6 +115,7 @@ select{
   align-items: center;
   max-width: 300px;  
   box-shadow: 10px 10px 19px 1px rgba(0,0,0,0.75);
+  z-index: 2;
 }
 
 
