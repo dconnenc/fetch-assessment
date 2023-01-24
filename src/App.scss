@@ -5,11 +5,33 @@ body{
   margin: 0px 0px 0px 0px; 
 }
 
-.lato{
-  font-family: 'Lato';
+input{
+  width: 200px;
+  height: 25px;
+  border: none;
+  margin: 5px 0px;
+  font-family: 'Source Sans Pro';
+  color: whitesmoke;
+}
+
+input::placeholder{
   color: #300C39;
 }
 
+select{
+  width: 200px !important;
+  height: 25px !important;
+}
+
+.lato{
+  font-family: 'Lato' !important;
+  color: #300C39;
+}
+
+.message{
+  width: 200px;
+  font-size: .7rem;
+}
 
 .submit{
   font-family: 'Lato';
@@ -52,28 +74,10 @@ body{
 }
 
 
-
-input{
-  width: 200px;
-  height: 25px;
-  border: none;
-  margin: 5px 0px;
-  font-family: 'Source Sans Pro';
-}
-input::placeholder{
-  color: #300C39;
-}
-
 .logo{
   margin-top: -70px;
   width: 210;
   height: 45;
-}
-
-select{
-  width: 200px !important;
-  height: 25px !important;
-
 }
 
 .bolded{
@@ -83,12 +87,15 @@ select{
 }
 
 .text-field{
+  margin-top: 5px;
   background-color: #FFDF7E;
   border-bottom: 1px solid #300C39;
   color: #300C39;
 }
 
 .select-field{
+  margin-top: 8px;
+  color:#300C39;
   background-color: #FFDF7E;
   font-family: 'Source Sans Pro';
   border: none;
@@ -119,7 +126,7 @@ select{
 }
 
 
-
 .stretch{
   width: 100%
 }
+
