@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import PasswordChecklist from "react-password-checklist"
-import './App.scss';
+import './styles/App.scss';
 
 //A sign-up form for Fetch Rewards
 //Thanks for reviewing this! I hope the project is clean and
@@ -57,7 +57,8 @@ function App() {
         console.log('There was an error in the post request', error)
       }
     }
-
+  
+  //submits data and renders submission confirmation
   const handleSubmit = () => {
     postFormData();
     setFormState("submitted")
@@ -170,11 +171,7 @@ function App() {
         : <div className="window">
             <h3 className='lato title'> Thanks <br/>{name}! </h3> 
                 <p className="lato text-centered">We received your submission. Please check </p>
-
-                <p className='lato text-centered strong'>
-                {email}
-                </p>
-             
+                <p className='lato text-centered strong'>{email}</p>
                 <p className="lato text-centered"> for a confirmation message. </p>
                 {/*There is no confirmation email!*/}
           </div>
