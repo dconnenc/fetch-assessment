@@ -41,38 +41,32 @@ select{
 }
 
 .icon{
-  height: 100px;
-  width: 100px;
-  position: absolute;
+  height: 80px;
+  width: 80px;
+  position: relative;
   border-radius: 50%;
   z-index: 1;
   &-1{
     @extend .icon;
-    margin-top: 100px;
-    margin-left: 350px;
+    margin: 41% 0 0 25%;
   }
   &-2{
     @extend .icon;
-    margin-top: 180px;
-    margin-left: 150px;
+    margin: 20% 0 0 26%;
   }
   &-3{
     @extend .icon;
-    margin-top: 300px;
-    margin-left: 480px;
+    margin: 54% 0 0 18%;
   }
   &-4{
     @extend .icon;
-    margin-top: 400px;
-    margin-left: 250px;
+    margin: 8% 0 0 19%;
   }
   &-5{
     @extend .icon;
-    margin-top: 600px;
-    margin-left: 376px;    
+    margin: 29% 0 0 9%;
   }
 }
-
 
 .logo{
   margin-top: -70px;
@@ -114,9 +108,14 @@ select{
 }
 
 .form {
-  background-color: #FFDF7E;
-  padding: 5pt 10pt;
-  border-radius: 5pt;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #FFFFFF;
+  border: 3px solid #300C39;
+  padding: 5px 10px;
+  border-radius: 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -125,8 +124,18 @@ select{
   z-index: 2;
 }
 
-
 .stretch{
   width: 100%
 }
 
+.icon-wrapper{
+  display:flex;
+  flex-direction: column;
+}
+
+@media all and (orientation:portrait) {
+   .icon-wrapper{
+    display: none;
+  } 
+}
+ 
